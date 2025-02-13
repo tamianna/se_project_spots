@@ -39,3 +39,7 @@ Below is a list of what is used in this project:
 **GitHub Link**
 
 https://tamianna.github.io/se_project_spots/
+
+**Google Drive Video link**
+
+https://drive.google.com/file/d/1k40RzKTjKMPSrNxRCRpIEIq7u-I7HsCU/view?usp=sharing
