@@ -36,9 +36,6 @@ Below is a list of what is used in this project:
 
 - the above image shows the device at `320` screen size.
 
-<video controls src="20250212-2333-01.7379709.mp4" title="Features"></video>
-
-- the above video highlights the `grid box` to show how the cards are arranged.
-  As well as showing the `hover` effects!
-
 **GitHub Link**
+
+https://tamianna.github.io/se_project_spots/

@@ -53,6 +53,7 @@
   opacity: 70%;
   display: flex;
   align-items: center;
+  background-color: #fcf5ef;
 }
 
 .profile__button-edit:hover {
