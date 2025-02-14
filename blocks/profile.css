@@ -1,6 +1,6 @@
 .profile {
   display: flex;
-  padding-bottom: 20px;
+  padding: 34px 0 20px;
   border-bottom: #21212166 1px solid;
 }
 
@@ -9,12 +9,13 @@
   height: 190px;
   object-fit: cover;
   border-radius: 8px;
-  border-color: #d9d9d9;
 }
 
 .profile__content {
   max-width: 420px;
   margin-left: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .profile__name {
@@ -33,7 +34,7 @@
 
 .profile__description {
   max-width: 420px;
-  margin: 0 0 114px;
+  margin: 0;
   font-size: 16px;
   opacity: 70%;
   color: #212121;
@@ -45,14 +46,14 @@
 }
 
 .profile__edit-button {
-  width: 107px;
-  height: 16px;
+  font-weight: 500;
   border: none;
   padding: 0;
-  margin: 0 0 20px;
+  margin: auto 0 0;
   font-size: 16px;
   line-height: 1;
   opacity: 70%;
+  color: #212121;
   display: flex;
   align-items: center;
   background-color: transparent;
@@ -71,10 +72,13 @@
   margin-left: auto;
   align-self: flex-end;
 }
+/* the margin-top and margin-left with value auto, didn't work to move the button..
+although it may be unnecessary... it works to move the button.*/
 
 .profile__add-button {
   width: 149px;
   height: 52px;
+  margin: auto 0 0 auto;
   padding: 0;
   background-color: #212121;
   border: none;
@@ -93,7 +97,6 @@
   width: 12px;
   height: 12px;
   margin: 0 8px 0 0;
-  border: 2px;
 }
 
 @media screen and (max-width: 630px) {
@@ -101,7 +104,7 @@
     max-width: 288px;
     flex-direction: column;
     justify-content: center;
-    padding: 0;
+    padding: 20px 0 0;
   }
 
   .profile__image {
@@ -134,11 +137,12 @@
     margin: 0;
     align-self: center;
   }
+  /* this selector works to get the button in place, which prevents the
+  horizontal scroll bar and keeps the button at 288px width.*/
 
   .profile__edit-button {
     margin: 0 auto;
     padding-bottom: 20px;
-    background-color: transparent;
   }
 
   .profile__add-button {

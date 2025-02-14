@@ -1,5 +1,5 @@
 .footer {
-  min-height: auto;
+  padding: 60px 0;
 }
 
 .footer__copyright {
@@ -7,7 +7,7 @@
   font-weight: 400;
   line-height: 1;
   opacity: 70%;
-  margin: 60px 0;
+  margin: 0;
   text-align: center;
   color: #212121;
   width: 100%;
