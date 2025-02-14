@@ -1,3 +1,7 @@
+.footer {
+  min-height: auto;
+}
+
 .footer__copyright {
   font-size: 16px;
   font-weight: 400;
@@ -5,4 +9,6 @@
   opacity: 70%;
   margin: 60px 0;
   text-align: center;
+  color: #212121;
+  width: 100%;
 }

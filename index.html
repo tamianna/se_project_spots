@@ -32,24 +32,22 @@
             class="profile__image"
           />
           <div class="profile__content">
-            <h1 class="profile__title">Bessie Coleman</h1>
-            <p class="profile__subtitle">Civil Aviator</p>
-            <div class="profile__button">
-              <button type="button" class="profile__button_edit">
-                <img
-                  src="./images/edit-tool.svg"
-                  alt="Little pencil"
-                  class="profile__button_image_pencil"
-                />Edit Profile
-              </button>
-            </div>
+            <h1 class="profile__name">Bessie Coleman</h1>
+            <p class="profile__description">Civil Aviator</p>
+            <button type="button" class="profile__edit-button">
+              <img
+                src="./images/edit-tool.svg"
+                alt="Little pencil"
+                class="profile__pencil-image"
+              />Edit Profile
+            </button>
           </div>
-          <div class="profile__button">
-            <button type="button" class="profile__button_add">
+          <div class="profile__add_container">
+            <button type="button" class="profile__add-button">
               <img
                 src="./images/plus-symbol.svg"
                 alt="Plus symbol"
-                class="profile__button_image_plus"
+                class="profile__plus-image"
               />New Post
             </button>
           </div>
@@ -63,15 +61,10 @@
                 alt="Snowy buildings along a hillside."
                 class="card__image"
               />
-              <p class="card__caption">
-                Val Thorens
-                <span class="card__icon-divider"></span>
-                <img
-                  src="./images/Like-Icon.svg"
-                  alt="The like icon, a heart."
-                  class="card__icon"
-                />
-              </p>
+              <div class="card__content">
+                <h2 class="card__caption">Val Thorens</h2>
+                <button type="button" class="card__icon"></button>
+              </div>
             </li>
             <li class="card">
               <img
@@ -79,15 +72,10 @@
                 alt="Small green resturant with flowers, brick building."
                 class="card__image"
               />
-              <p class="card__caption">
-                Restaurant terrace
-                <span class="card__icon-divider"></span>
-                <img
-                  src="./images/Like-Icon.svg"
-                  alt="The like icon, a heart."
-                  class="card__icon"
-                />
-              </p>
+              <div class="card__content">
+                <h2 class="card__caption">Restaurant terrace</h2>
+                <button type="button" class="card__icon"></button>
+              </div>
             </li>
             <li class="card">
               <img
@@ -95,15 +83,10 @@
                 alt="People eating at an outdoor cafe."
                 class="card__image"
               />
-              <p class="card__caption">
-                An outdoor cafe
-                <span class="card__icon-divider"></span>
-                <img
-                  src="./images/Like-Icon.svg"
-                  alt="The like icon, a heart."
-                  class="card__icon"
-                />
-              </p>
+              <div class="card__content">
+                <h2 class="card__caption">An outdoor cafe</h2>
+                <button type="button" class="card__icon"></button>
+              </div>
             </li>
             <li class="card">
               <img
@@ -111,15 +94,12 @@
                 alt="Wooden string bridge over a forest."
                 class="card__image"
               />
-              <p class="card__caption">
-                A very long bridge, over the forest...
-                <span class="card__icon-divider"></span>
-                <img
-                  src="./images/Like-Icon.svg"
-                  alt="The like icon, a heart."
-                  class="card__icon"
-                />
-              </p>
+              <div class="card__content">
+                <h2 class="card__caption">
+                  A very long bridge, over the forest
+                </h2>
+                <button type="button" class="card__icon"></button>
+              </div>
             </li>
             <li class="card">
               <img
@@ -127,15 +107,10 @@
                 alt="A tunnel with light coming in."
                 class="card__image"
               />
-              <p class="card__caption">
-                Tunnel with morning light
-                <span class="card__icon-divider"></span>
-                <img
-                  src="./images/Like-Icon.svg"
-                  alt="The like icon, a heart."
-                  class="card__icon"
-                />
-              </p>
+              <div class="card__content">
+                <h2 class="card__caption">Tunnel with morning light</h2>
+                <button type="button" class="card__icon"></button>
+              </div>
             </li>
             <li class="card">
               <img
@@ -143,15 +118,10 @@
                 alt="Snowy landscape with a little wooden house."
                 class="card__image"
               />
-              <p class="card__caption">
-                Mountain house
-                <span class="card__icon-divider"></span>
-                <img
-                  src="./images/Like-Icon.svg"
-                  alt="The like icon, a heart."
-                  class="card__icon"
-                />
-              </p>
+              <div class="card__content">
+                <h2 class="card__caption">Mountain house</h2>
+                <button type="button" class="card__icon"></button>
+              </div>
             </li>
           </ul>
         </section>
