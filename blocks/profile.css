@@ -68,13 +68,6 @@
   margin: 0 8px 0 0;
 }
 
-.profile__add_container {
-  margin-left: auto;
-  align-self: flex-end;
-}
-/* the margin-top and margin-left with value auto, didn't work to move the button..
-although it may be unnecessary... it works to move the button.*/
-
 .profile__add-button {
   width: 149px;
   height: 52px;
@@ -104,7 +97,7 @@ although it may be unnecessary... it works to move the button.*/
     max-width: 288px;
     flex-direction: column;
     justify-content: center;
-    padding: 20px 0 0;
+    padding: 20px 0;
   }
 
   .profile__image {
@@ -115,7 +108,7 @@ although it may be unnecessary... it works to move the button.*/
 
   .profile__content {
     max-width: 271px;
-    margin: 0 auto;
+    margin: 0 auto 20px;
   }
 
   .profile__name {
@@ -132,21 +125,12 @@ although it may be unnecessary... it works to move the button.*/
     max-width: 288px;
   }
 
-  .profile__add_container {
-    display: flex;
-    margin: 0;
-    align-self: center;
-  }
-  /* this selector works to get the button in place, which prevents the
-  horizontal scroll bar and keeps the button at 288px width.*/
-
   .profile__edit-button {
     margin: 0 auto;
-    padding-bottom: 20px;
   }
 
   .profile__add-button {
-    width: 288px;
-    margin-bottom: 20px;
+    width: 100%;
+    margin: 0;
   }
 }
