@@ -26,27 +26,58 @@ const initialCards = [
 ];
 
 const profitleEditButton = document.querySelector(".profile__edit-button");
+const profileNameElement = document.querySelector(".profile__name");
+const profileJobElement = document.querySelector(".profile__description");
+
 const editProfileModal = document.querySelector("#edit-modal");
-const modalCloseButton = document.querySelector(".modal__close-button");
+const editFormElement = editProfileModal.querySelector(".modal__form");
+const nameInput = editProfileModal.querySelector("#profile-name");
+const jobInput = editProfileModal.querySelector("#profile-description");
+const modalCloseButton = editProfileModal.querySelector(".modal__close-button");
+const modalSaveButton = editProfileModal.querySelector(".modal__save-button");
 
-profitleEditButton.addEventListener("click", function () {
-  editProfileModal.classList.add("modal_opened");
-});
+const cardTemplate = document.querySelector("#card-template").content;
+const cardsList = document.querySelector(".cards__list");
 
-modalCloseButton.addEventListener("click", function () {
-  editProfileModal.classList.remove("modal_opened");
-});
+let data = { name: "Card Name" };
 
-/*
 function openModal() {
+  nameInput.value = profileNameElement.textContent;
+  jobInput.value = profileJobElement.textContent;
   editProfileModal.classList.add("modal_opened");
 }
 
-profitleEditButton.addEventListener("click", openModal);
+function handleEditFormSubmit(evt) {
+  evt.preventDefault();
+  profileNameElement.textContent = nameInput.value;
+  profileJobElement.textContent = jobInput.value;
+  closeModal();
+}
 
 function closeModal() {
   editProfileModal.classList.remove("modal_opened");
 }
 
+function getCardElement(data) {
+  console.log(data);
+  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+
+  cardNameEl = cardElement.querySelector(".card__caption");
+  cardLinkEl = cardElement.querySelector(".card__image");
+  cardImageAlt = cardElement.querySelector(".card__caption");
+
+  cardNameEl.textContent = data.name;
+  cardLinkEl.src = data.link;
+  cardImageAlt.textContent = data.name;
+
+  return cardElement;
+}
+
+profitleEditButton.addEventListener("click", openModal);
 modalCloseButton.addEventListener("click", closeModal);
-*/
+editFormElement.addEventListener("submit", handleEditFormSubmit);
+
+for (let i = 0; i < initialCards.length; i++) {
+  const cardElement = getCardElement(initialCards[i]);
+  cardsList.prepend(cardElement);
+}

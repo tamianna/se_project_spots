@@ -53,74 +53,15 @@
 
         <section class="cards page__section">
           <ul class="cards__list">
-            <li class="card">
-              <img
-                src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg"
-                alt="Snowy buildings along a hillside."
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__caption">Val Thorens</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/2-photo-by-ceiline-from-pexels.jpg"
-                alt="Small green resturant with flowers, brick building."
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__caption">Restaurant terrace</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg"
-                alt="People eating at an outdoor cafe."
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__caption">An outdoor cafe</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/4-photo-by-maurice-laschet-from-pexels.jpg"
-                alt="Wooden string bridge over a forest."
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__caption">
-                  A very long bridge, over the forest
-                </h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
-                alt="A tunnel with light coming in."
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__caption">Tunnel with morning light</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg"
-                alt="Snowy landscape with a little wooden house."
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__caption">Mountain house</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
+            <template id="card-template">
+              <li class="card">
+                <img src="" alt="" class="card__image" />
+                <div class="card__content">
+                  <h2 class="card__caption"></h2>
+                  <button type="button" class="card__like-button"></button>
+                </div>
+              </li>
+            </template>
           </ul>
         </section>
       </main>
@@ -134,19 +75,19 @@
           <h2 class="modal__title">Edit profile</h2>
           <button type="submit" class="modal__close-button"></button>
           <form name="edit-profile" class="modal__form">
-            <label for="name" class="modal__label">
+            <label for="profile-name" class="modal__label">
               Name
               <input
-                id="name"
+                id="profile-name"
                 type="text"
                 class="modal__input"
                 placeholder="Type your name"
               />
             </label>
-            <label for="description" class="modal__label">
+            <label for="profile-description" class="modal__label">
               Description
               <input
-                id="description"
+                id="profile-description"
                 type="text"
                 class="modal__input"
                 placeholder="Describe yourself"
