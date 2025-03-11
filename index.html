@@ -58,7 +58,11 @@
                 <img src="" alt="" class="card__image" />
                 <div class="card__content">
                   <h2 class="card__caption"></h2>
-                  <button type="button" class="card__like-button"></button>
+                  <button
+                    type="button"
+                    class="card__like-button card__like-button_liked"
+                  ></button>
+                  <button type="button" class="card__delete-button"></button>
                 </div>
               </li>
             </template>
@@ -73,7 +77,11 @@
       <div id="edit-modal" class="modal">
         <div class="modal__container">
           <h2 class="modal__title">Edit profile</h2>
-          <button type="button" class="modal__close-button"></button>
+          <button
+            type="button"
+            id="modal__close-button-edit"
+            class="modal__close-button"
+          ></button>
           <form name="edit-profile" id="edit-profile" class="modal__form">
             <label for="profile-name" class="modal__label">
               Name
@@ -93,7 +101,51 @@
                 placeholder="Describe yourself"
               />
             </label>
-            <button type="submit" class="modal__save-button">Save</button>
+            <button
+              type="submit"
+              id="modal__save-button-edit"
+              class="modal__save-button"
+            >
+              Save
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div id="add-modal" class="modal">
+        <div class="modal__container">
+          <h2 class="modal__title">New post</h2>
+          <button
+            type="button"
+            id="modal__close-button-add"
+            class="modal__close-button"
+          ></button>
+          <form name="add-card" id="add-card" class="modal__form">
+            <label for="image-link" class="modal__label">
+              Image link
+              <input
+                id="image-link"
+                type="url"
+                class="modal__input"
+                placeholder="Paste a link to the picture"
+              />
+            </label>
+            <label for="card-caption" class="modal__label">
+              Caption
+              <input
+                id="card-caption"
+                type="text"
+                class="modal__input"
+                placeholder="Type your caption"
+              />
+            </label>
+            <button
+              type="submit"
+              id="modal__save-button-add"
+              class="modal__save-button"
+            >
+              Save
+            </button>
           </form>
         </div>
       </div>
