@@ -58,10 +58,7 @@
                 <img src="" alt="" class="card__image" />
                 <div class="card__content">
                   <h2 class="card__caption"></h2>
-                  <button
-                    type="button"
-                    class="card__like-button card__like-button_liked"
-                  ></button>
+                  <button type="button" class="card__like-button"></button>
                   <button type="button" class="card__delete-button"></button>
                 </div>
               </li>
@@ -147,6 +144,18 @@
               Save
             </button>
           </form>
+        </div>
+      </div>
+
+      <div class="modal" id="preview-modal">
+        <div class="modal__container modal__container_type_preview">
+          <img class="modal__image" src="#" alt="" />
+          <p class="modal__caption"></p>
+          <button
+            type="button"
+            id="modal__close-button-preview"
+            class="modal__close modal__close_type_preview"
+          ></button>
         </div>
       </div>
     </div>

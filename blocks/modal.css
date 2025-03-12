@@ -10,20 +10,34 @@
   align-items: center;
   justify-content: center;
   visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
 }
 
 .modal_opened {
   visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
 }
 
 .modal__container {
   background-color: #ffffff;
-  max-width: 730px;
-  width: 100%;
   border-radius: 8px;
   box-sizing: border-box;
   padding: 32px 50px;
   position: relative;
+}
+
+.modal__container_type_preview {
+  padding: 0;
+  position: relative;
+  background-color: transparent;
+}
+
+.modal__image {
+  max-width: 80vw;
+  max-height: 80vh;
+  object-fit: contain;
 }
 
 .modal__title {
@@ -55,6 +69,23 @@
   cursor: pointer;
 }
 
+.modal__close_type_preview {
+  background-image: url(../images/Close-Icon-preview.svg);
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: -40px;
+  top: 0;
+}
+
+.modal__close_type_preview:hover {
+  opacity: 40%;
+  cursor: pointer;
+}
+
 .modal__label {
   display: flex;
   flex-direction: column;
@@ -65,6 +96,19 @@
   font-size: 16px;
   line-height: 1.1;
   font-weight: 500;
+}
+
+.modal__caption {
+  border-radius: 8px;
+  color: #ffffff;
+  background-color: #212121;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 8px 0 0;
+  padding: 4px 8px;
+  max-width: 214px;
 }
 
 .modal__input {
@@ -94,7 +138,28 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 630px) {
+@media screen and (min-width: 376px) and (max-width: 629px) and (orientation: landscape) {
+  .modal__container_type_preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal__image {
+    max-width: 90vw;
+    max-height: 70vh;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .modal__close_type_preview {
+    right: -8px;
+    top: -35px;
+  }
+}
+
+@media screen and (max-width: 375px) {
   .modal {
     padding: 0 10px;
   }
@@ -106,6 +171,10 @@
     padding: 12px;
   }
 
+  .modal__container_type_preview {
+    padding: 0;
+  }
+
   .modal__title {
     font-size: 20px;
     margin: 0 0 24px;
@@ -115,6 +184,11 @@
   .modal__close-button {
     top: 12px;
     right: 12px;
+  }
+
+  .modal__close_type_preview {
+    top: -35px;
+    right: -8px;
   }
 
   .modal__label {
