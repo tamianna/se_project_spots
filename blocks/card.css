@@ -41,18 +41,19 @@
   height: 20px;
   padding: 0;
   border: none;
-  opacity: 40%;
+  opacity: 0.5;
 }
 
 .card__like-button:hover {
   color: #212121;
-  opacity: 100%;
+  opacity: 1;
   cursor: pointer;
+  background-color: transparent;
 }
 
 .card__like-button_liked {
   background-image: url(../images/Like-liked.svg);
-  opacity: 100%;
+  opacity: 1;
 }
 
 .card__like-button_liked:hover {

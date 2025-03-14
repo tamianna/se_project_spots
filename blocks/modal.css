@@ -26,12 +26,15 @@
   box-sizing: border-box;
   padding: 32px 50px;
   position: relative;
+  max-width: 730px;
+  width: 100%;
 }
 
 .modal__container_type_preview {
   padding: 0;
   position: relative;
   background-color: transparent;
+  width: auto;
 }
 
 .modal__image {
@@ -53,23 +56,23 @@
   right: 50px;
   width: 40px;
   height: 40px;
-  background-image: url(../images/Close-icon.png);
+  background-image: url(../images/Close-icon.svg);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   background-color: transparent;
-  border: 2px;
-  opacity: 40%;
+  border: none;
+  opacity: 0.5;
   padding: 0;
 }
 
 .modal__close-button:hover {
   color: #212121;
-  opacity: 100%;
+  opacity: 1;
   cursor: pointer;
 }
 
-.modal__close_type_preview {
+.modal__close-button-preview {
   background-image: url(../images/Close-Icon-preview.svg);
   background-color: transparent;
   border: none;
@@ -81,8 +84,8 @@
   top: 0;
 }
 
-.modal__close_type_preview:hover {
-  opacity: 40%;
+.modal__close-button-preview:hover {
+  opacity: 0.5;
   cursor: pointer;
 }
 
@@ -92,7 +95,7 @@
   gap: 8px;
   margin: 0 0 32px;
   color: #212121;
-  opacity: 70%;
+  opacity: 0.8;
   font-size: 16px;
   line-height: 1.1;
   font-weight: 500;
@@ -138,12 +141,29 @@
   cursor: pointer;
 }
 
+.modal__save-button:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 376px) and (max-width: 629px) and (orientation: landscape) {
+  .modal {
+    padding: 0 12px;
+  }
+
+  .modal__container {
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 12px;
+    width: 0%;
+  }
+
   .modal__container_type_preview {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0;
   }
 
   .modal__image {
@@ -165,7 +185,6 @@
   }
 
   .modal__container {
-    max-width: 300px;
     box-sizing: border-box;
     border-radius: 8px;
     padding: 12px;
