@@ -37,6 +37,7 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: transparent;
   width: 23px;
   height: 20px;
   padding: 0;
@@ -54,6 +55,7 @@
 .card__like-button_liked {
   background-image: url(../images/Like-liked.svg);
   opacity: 1;
+  background-color: transparent;
 }
 
 .card__like-button_liked:hover {

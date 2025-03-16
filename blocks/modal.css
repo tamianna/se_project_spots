@@ -111,7 +111,7 @@
   line-height: 1.2;
   margin: 8px 0 0;
   padding: 4px 8px;
-  max-width: 214px;
+  width: fit-content;
 }
 
 .modal__input {
@@ -146,6 +146,12 @@
   cursor: pointer;
 }
 
+@media screen and (min-width: 915px) and (max-width: 1440px) and (orientation: landscape) {
+  .modal__container_type_preview {
+    max-width: 991px;
+  }
+}
+
 @media screen and (min-width: 376px) and (max-width: 629px) and (orientation: landscape) {
   .modal {
     padding: 0 12px;
@@ -173,7 +179,11 @@
     margin: 0 auto;
   }
 
-  .modal__close_type_preview {
+  .modal__caption {
+    font-size: 16px;
+  }
+
+  .modal__close-button-preview {
     right: -8px;
     top: -35px;
   }
@@ -205,7 +215,8 @@
     right: 12px;
   }
 
-  .modal__close_type_preview {
+  /* I am not seeing the close button issue on my laptop in DevTools...*/
+  .modal__close-button-preview {
     top: -35px;
     right: -8px;
   }
@@ -214,11 +225,22 @@
     margin: 0 0 24px;
   }
 
+  .modal__caption {
+    font-size: 16px;
+  }
+
   .modal__input {
     font-size: 16px;
   }
 
   .modal__save-button {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 375px) and (orientation: landscape) {
+  .modal__close-button-preview {
+    right: 30px;
+    top: -40px;
   }
 }
