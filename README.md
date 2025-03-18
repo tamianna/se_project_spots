@@ -21,6 +21,11 @@ Below is a list of what is used in this project:
 - Button features
 - Hover effects
 - @media inquiries
+- JavaScript
+- Open/close of edit profile and new post buttons
+- edit of name and description
+- adding/deleting a new photo/caption
+- preview of phote, once clicked on
 
 **Some Features**
 
