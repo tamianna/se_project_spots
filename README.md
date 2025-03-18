@@ -22,10 +22,10 @@ Below is a list of what is used in this project:
 - Hover effects
 - @media inquiries
 - JavaScript
-- Open/close of edit profile and new post buttons
-- edit of name and description
-- adding/deleting a new photo/caption
-- preview of phote, once clicked on
+- Open/close modal of _edit profile_ and _new post_ buttons
+- Edit of name and description
+- Adding/deleting a new post
+- Preview modal of posts, once clicked on
 
 **Some Features**
 
