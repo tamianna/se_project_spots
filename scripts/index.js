@@ -52,6 +52,7 @@ const modalSaveAddButton = addImageModal.querySelector(
 );
 
 //modal
+const modal = document.querySelectorAll(".modal");
 const previewModal = document.querySelector("#preview-modal");
 const closePreviewModal = previewModal.querySelector(
   ".modal__close-button-preview"
@@ -63,8 +64,17 @@ const previewModalCaption = previewModal.querySelector(".modal__caption");
 const cardTemplate = document.querySelector("#card-template").content;
 const cardsList = document.querySelector(".cards__list");
 
+function handleEscapeKey(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    if (openedModal) {
+      closeModal(openedModal);
+    }
+  }
+}
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscapeKey);
 }
 
 function handleEditFormSubmit(evt) {
@@ -147,6 +157,14 @@ profileAddButton.addEventListener("click", () => {
 
 modalCloseAddButton.addEventListener("click", () => {
   closeModal(addImageModal);
+});
+
+modal.forEach((modalElement) => {
+  modalElement.addEventListener("click", (evt) => {
+    if (evt.target === modalElement) {
+      closeModal(modalElement);
+    }
+  });
 });
 
 initialCards.forEach((item) => {
