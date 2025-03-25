@@ -123,9 +123,19 @@
   border-color: #21212166;
 }
 
+.modal__input_type_error {
+  border: 1px solid #ff0000;
+  opacity: 0.6;
+}
+
 .modal__input:hover {
   border-color: #212121;
   cursor: pointer;
+}
+
+.modal__error {
+  color: #ff0000;
+  opacity: 0.7;
 }
 
 .modal__save-button {
@@ -144,6 +154,14 @@
 .modal__save-button:hover {
   opacity: 0.9;
   cursor: pointer;
+}
+
+.modal__save-button_inactive {
+  opacity: 0.5;
+}
+
+.modal__save-button_inactive:hover {
+  opacity: 0.5;
 }
 
 @media screen and (min-width: 915px) and (max-width: 1440px) and (orientation: landscape) {

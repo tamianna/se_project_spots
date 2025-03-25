@@ -79,6 +79,8 @@ function handleAddFormSubmit(evt) {
   const inputValues = { name: captionInput.value, link: linkInput.value };
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
+  evt.target.reset();
+  disableButton(modalSaveAddButton, config);
   closeModal(addImageModal);
 }
 
@@ -128,6 +130,7 @@ closePreviewModal.addEventListener("click", () => {
 profileEditButton.addEventListener("click", () => {
   nameInput.value = profileNameElement.textContent;
   jobInput.value = profileJobElement.textContent;
+  resetValidation(editFormElement, [nameInput, jobInput]);
   openModal(editProfileModal);
 });
 
