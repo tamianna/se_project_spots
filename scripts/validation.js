@@ -45,7 +45,7 @@ const toggleButtonState = (inputFields, saveButton, config) => {
 };
 
 const disableButton = (saveButton, config) => {
-  saveButton.disable = true;
+  saveButton.disabled = true;
   saveButton.classList.add(config.inactiveButtonClass);
 };
 

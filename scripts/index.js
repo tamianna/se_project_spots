@@ -52,7 +52,7 @@ const modalSaveAddButton = addImageModal.querySelector(
 );
 
 //modal
-const modal = document.querySelectorAll(".page .modal");
+const modals = document.querySelectorAll(".page .modal");
 const previewModal = document.querySelector("#preview-modal");
 const closePreviewModal = previewModal.querySelector(
   ".modal__close-button-preview"
@@ -90,9 +90,6 @@ function handleAddFormSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   evt.target.reset();
-  if (modal === addImageModal) {
-    addFormElement.reset();
-  }
   closeModal(addImageModal);
 }
 
@@ -163,7 +160,7 @@ modalCloseAddButton.addEventListener("click", () => {
   closeModal(addImageModal);
 });
 
-modal.forEach((modalElement) => {
+modals.forEach((modalElement) => {
   modalElement.addEventListener("click", (evt) => {
     if (evt.target === modalElement) {
       closeModal(modalElement);
