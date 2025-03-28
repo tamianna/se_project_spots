@@ -11,14 +11,14 @@ const showInputError = (formEl, inputEl, errorMessage, config) => {
   const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMessageEl.textContent = errorMessage;
   inputEl.classList.add(config.errorClass);
+  inputEl.classList.add(config.inputErrorClass);
 };
 
-//if I add 'config' to the hideInputError function (), it loads an error
-//and will  not work.
-const hideInputError = (formEl, inputEl) => {
+const hideInputError = (formEl, inputEl, config) => {
   const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMessageEl.textContent = "";
   inputEl.classList.remove(config.errorClass);
+  inputEl.classList.remove(config.inputErrorClass);
 };
 
 const checkInputValidatity = (formEl, inputEl, config) => {
@@ -35,26 +35,23 @@ const hasInvaildInput = (inputFields) => {
   });
 };
 
-const toggleButtonState = (inputFields, saveButton) => {
+const toggleButtonState = (inputFields, saveButton, config) => {
   if (hasInvaildInput(inputFields)) {
-    disableButton(saveButton);
-    saveButton.classList.add(config.inactiveButtonClass);
+    disableButton(saveButton, config);
   } else {
     saveButton.disabled = false;
     saveButton.classList.remove(config.inactiveButtonClass);
   }
 };
 
-//if I add 'config' to the disableButton function (), it loads an error
-//and will  not work.
-const disableButton = (saveButton) => {
+const disableButton = (saveButton, config) => {
   saveButton.disable = true;
   saveButton.classList.add(config.inactiveButtonClass);
 };
 
-const resetValidation = (formEl, inputFields) => {
+const resetValidation = (formEl, inputFields, config) => {
   inputFields.forEach((inputEl) => {
-    hideInputError(formEl, inputEl);
+    hideInputError(formEl, inputEl, config);
   });
 };
 
@@ -63,6 +60,10 @@ const setEventListeners = (formEl, config) => {
   const saveButton = formEl.querySelector(config.submitButtonSelector);
 
   toggleButtonState(inputFields, saveButton, config);
+
+  formEl.addEventListener("reset", () => {
+    disableButton(saveButton, config);
+  });
 
   inputFields.forEach((inputEl) => {
     inputEl.addEventListener("input", function () {
