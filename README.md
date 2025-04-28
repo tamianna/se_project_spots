@@ -40,9 +40,9 @@ Below is a list of what is used in this project:
 
 - The above image shows the device at `1440px` screen size.
 
-![936](./images/image-1.png)
+![1024](./images/image-1.png)
 
-- The above image shows the device at `936` screen size.
+- The above image shows the device at `1024` screen size.
 
 ![320](./images/image-3.png)
 

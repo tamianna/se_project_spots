@@ -49,7 +49,7 @@ const disableButton = (saveButton, config) => {
   saveButton.classList.add(config.inactiveButtonClass);
 };
 
-const resetValidation = (formEl, inputFields, config) => {
+export const resetValidation = (formEl, inputFields, config) => {
   inputFields.forEach((inputEl) => {
     hideInputError(formEl, inputEl, config);
   });
