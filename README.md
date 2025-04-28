@@ -36,15 +36,15 @@ Below is a list of what is used in this project:
 
 **Some Features**
 
-![1440](./images/image.png)
+![1440](./src//images/image.png)
 
 - The above image shows the device at `1440px` screen size.
 
-![1024](./images/image-1.png)
+![1024](./src//images/image-1.png)
 
 - The above image shows the device at `1024` screen size.
 
-![320](./images/image-3.png)
+![320](./src//images/image-3.png)
 
 - The above image shows the device at `320` screen size.
 
