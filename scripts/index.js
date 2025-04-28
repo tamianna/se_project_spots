@@ -1,3 +1,5 @@
+import { enableValidation, config } from "./validation.js";
+
 const initialCards = [
   {
     name: "Snow in The Jungle.",
@@ -171,3 +173,5 @@ modals.forEach((modalElement) => {
 initialCards.forEach((item) => {
   renderCard(item);
 });
+
+enableValidation(config);
