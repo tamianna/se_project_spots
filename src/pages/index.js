@@ -4,8 +4,10 @@ import {
   config,
   resetValidation,
 } from "../scripts/validation.js";
+import autoprefixer from "autoprefixer";
+import API from "../utils/Api.js";
 
-const initialCards = [
+/*const initialCards = [
   {
     name: "Snow in The Jungle.",
     link: "https://images.unsplash.com/photo-1602491453631-e2a5ad90a131?q=80&w=1227&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -30,7 +32,7 @@ const initialCards = [
     name: "Tree of Life!",
     link: "https://images.unsplash.com/photo-1535463731090-e34f4b5098c5?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjA5fHxuYXR1cmV8ZW58MHx8MHx8fDI%3D",
   },
-];
+];*/
 
 //Profile elements
 const profileEditButton = document.querySelector(".profile__edit-button");
@@ -70,6 +72,21 @@ const previewModalCaption = previewModal.querySelector(".modal__caption");
 //Card elements
 const cardTemplate = document.querySelector("#card-template").content;
 const cardsList = document.querySelector(".cards__list");
+
+const api = new API({
+  baseURL: "https://around-api.en.tripleten-services.com/v1/whicheverend",
+  headers: {
+    authorization: "27a9340c-3c21-464f-86c2-e39184d5627d",
+    "Content-Type": "application/json"
+  }
+});
+
+api.getInitialCards()
+  .then((cards) => {
+    cards.forEach((Inicards) => {
+      renderCard(Inicards);
+    });
+  })
 
 function handleEscapeKey(evt) {
   if (evt.key === "Escape") {
@@ -175,8 +192,5 @@ modals.forEach((modalElement) => {
   });
 });
 
-initialCards.forEach((item) => {
-  renderCard(item);
-});
 
 enableValidation(config);
