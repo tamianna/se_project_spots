@@ -171,6 +171,34 @@
           ></button>
         </div>
       </div>
+
+      <div id="delete-modal" class="modal">
+        <div class="modal__container">
+          <h2 class="modal__delete-title">Are you sure you want to delete this image?</h2>
+          <button
+            type="button"
+            id="modal__close-button-delete"
+            class="modal__close-button-preview"
+          ></button>
+          <form id="delete-form" class="modal__delete-form">
+            <button
+              type="submit"
+              id="modal__delete-button"
+              class="modal__delete-button"
+            >
+              Delete
+            </button>
+            <button
+              type="button"
+              id="modal__delete-button-cancel"
+              class="modal__cancel-button"
+            >
+              Cancel
+            </button>
+          </form>
+        </div>
+      </div>
+
     </div>
   </body>
 </html>
