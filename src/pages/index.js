@@ -81,15 +81,16 @@ const api = new API({
   }
 });
 
-api.getInitialCards()
-  .then((cards) => {
-    cards.forEach((Inicards) => {
-      renderCard(Inicards);
-    });
-  })
-  .catch((err) => {
-    console.error(err);
+// can add multiple variables, use a comma to separate.
+  api.getAppInfo()
+  .then(([cards,]) =>  {
+    cards.forEach((item) => {
+    renderCard(item);
   });
+})
+.catch((err) => {
+  console.error(err);
+});
 
 function handleEscapeKey(evt) {
   if (evt.key === "Escape") {

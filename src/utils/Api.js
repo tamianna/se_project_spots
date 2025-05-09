@@ -4,6 +4,11 @@ class API {
     this._headers = headers;
   }
 
+  //can add multiple methods to it, use a comma to separate. 
+  getAppInfo() {
+    return Promise.all([this.getInitialCards(),])
+  }
+
   getInitialCards() {
     return fetch(`${this._baseURL}/cards`, {
   headers: this._headers,
@@ -12,7 +17,7 @@ class API {
   if (res.ok) {
     return res.json();
   }
-  // if the server returns an error, reject the promise
+
   return Promise.reject(`Error: ${res.status}`);
 });
   }
