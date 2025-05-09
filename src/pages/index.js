@@ -62,7 +62,9 @@ const modalSaveAddButton = addImageModal.querySelector(
 );
 
 const deleteCardModal = document.querySelector("#delete-modal");
+const deleteForm = deleteCardModal.querySelector(".modal__delete-form");
 const closeDeleleModal = deleteCardModal.querySelector("#modal__close-button-delete");
+const cancelButton = deleteCardModal.querySelector(".modal__cancel-button");
 
 //modal
 const modals = document.querySelectorAll(".page .modal");
@@ -76,6 +78,9 @@ const previewModalCaption = previewModal.querySelector(".modal__caption");
 //Card elements
 const cardTemplate = document.querySelector("#card-template").content;
 const cardsList = document.querySelector(".cards__list");
+
+let selectedCard;
+let selectedCardId;
 
 //API code
 const api = new API({
@@ -143,7 +148,21 @@ function handleAddFormSubmit(evt) {
   });
 }
 
-function handleDeleteCard(evt) {
+function handleDeleteSubmit(evt) {
+  evt.preventDefault();
+  api.deleteCard(selectedCardId)
+  .then(() => {
+    selectedCard.remove();
+    closeModal(deleteCardModal);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+}
+
+function handleDeleteCard(cardElement, cardId) {
+  selectedCard = cardElement;
+  selectedCardId = cardId;
   openModal(deleteCardModal);
 }
 
@@ -168,7 +187,8 @@ function getCardElement(data) {
     cardLikedButton.classList.toggle("card__like-button_liked");
   });
 
-  cardDeleteButton.addEventListener("click", handleDeleteCard);
+  cardDeleteButton.addEventListener("click", (evt) => handleDeleteCard(cardElement, data._id)
+);
 
   cardLinkEl.addEventListener("click", () => {
     openModal(previewModal);
@@ -194,6 +214,10 @@ closePreviewModal.addEventListener("click", () => {
 closeDeleleModal.addEventListener("click", () => {
   closeModal(deleteCardModal);
 });
+cancelButton.addEventListener("click", () => {
+  closeModal(deleteCardModal);
+});
+
 
 profileEditButton.addEventListener("click", () => {
   nameInput.value = profileNameElement.textContent;
@@ -208,7 +232,7 @@ modalCloseEditButton.addEventListener("click", () => {
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 addFormElement.addEventListener("submit", handleAddFormSubmit);
-//deleteCardModal.addEventListener("sumbit", handleDeleteCard);
+deleteForm.addEventListener("submit", handleDeleteSubmit);
 
 profileAddButton.addEventListener("click", () => {
   openModal(addImageModal);
