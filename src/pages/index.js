@@ -61,6 +61,9 @@ const modalSaveAddButton = addImageModal.querySelector(
   "#modal__save-button-add"
 );
 
+const deleteCardModal = document.querySelector("#delete-modal");
+const closeDeleleModal = deleteCardModal.querySelector("#modal__close-button-delete");
+
 //modal
 const modals = document.querySelectorAll(".page .modal");
 const previewModal = document.querySelector("#preview-modal");
@@ -74,6 +77,7 @@ const previewModalCaption = previewModal.querySelector(".modal__caption");
 const cardTemplate = document.querySelector("#card-template").content;
 const cardsList = document.querySelector(".cards__list");
 
+//API code
 const api = new API({
   baseURL: "https://around-api.en.tripleten-services.com/v1",
   headers: {
@@ -98,6 +102,7 @@ const api = new API({
   console.error(err);
 });
 
+//function section
 function handleEscapeKey(evt) {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
@@ -138,6 +143,10 @@ function handleAddFormSubmit(evt) {
   });
 }
 
+function handleDeleteCard(evt) {
+  openModal(deleteCardModal);
+}
+
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", handleEscapeKey);
@@ -159,9 +168,7 @@ function getCardElement(data) {
     cardLikedButton.classList.toggle("card__like-button_liked");
   });
 
-  cardDeleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
+  cardDeleteButton.addEventListener("click", handleDeleteCard);
 
   cardLinkEl.addEventListener("click", () => {
     openModal(previewModal);
@@ -179,8 +186,13 @@ function renderCard(item, method = "append") {
   cardsList[method](cardElement);
 }
 
+//listeners
 closePreviewModal.addEventListener("click", () => {
   closeModal(previewModal);
+});
+
+closeDeleleModal.addEventListener("click", () => {
+  closeModal(deleteCardModal);
 });
 
 profileEditButton.addEventListener("click", () => {
@@ -196,6 +208,7 @@ modalCloseEditButton.addEventListener("click", () => {
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 addFormElement.addEventListener("submit", handleAddFormSubmit);
+//deleteCardModal.addEventListener("sumbit", handleDeleteCard);
 
 profileAddButton.addEventListener("click", () => {
   openModal(addImageModal);
