@@ -74,7 +74,7 @@ const cardTemplate = document.querySelector("#card-template").content;
 const cardsList = document.querySelector(".cards__list");
 
 const api = new API({
-  baseURL: "https://around-api.en.tripleten-services.com/v1/whicheverend",
+  baseURL: "https://around-api.en.tripleten-services.com/v1",
   headers: {
     authorization: "27a9340c-3c21-464f-86c2-e39184d5627d",
     "Content-Type": "application/json"
@@ -87,6 +87,9 @@ api.getInitialCards()
       renderCard(Inicards);
     });
   })
+  .catch((err) => {
+    console.error(err);
+  });
 
 function handleEscapeKey(evt) {
   if (evt.key === "Escape") {
