@@ -113,7 +113,7 @@ function openModal(modal) {
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
-  api.editUserInfo({name: nameInput.value, about: jobInput.value })
+  api.editUserInfo({ name: nameInput.value, about: jobInput.value })
   .then((data) => {
     profileNameElement.textContent = data.name;
     profileJobElement.textContent = data.about;
@@ -126,11 +126,16 @@ function handleEditFormSubmit(evt) {
 
 function handleAddFormSubmit(evt) {
   evt.preventDefault();
-  const inputValues = { name: captionInput.value, link: linkInput.value };
-  const cardElement = getCardElement(inputValues);
-  cardsList.prepend(cardElement);
-  evt.target.reset();
-  closeModal(addImageModal);
+  api.addNewCard({ name: captionInput.value, link: linkInput.value })
+  .then((data) => {
+    const cardElement = getCardElement(data);
+    cardsList.prepend(cardElement);
+    evt.target.reset();
+    closeModal(addImageModal);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 }
 
 function closeModal(modal) {

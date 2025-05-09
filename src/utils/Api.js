@@ -20,6 +20,25 @@ class API {
 
   return Promise.reject(`Error: ${res.status}`);
 });
+}
+
+  addNewCard({ name, link }) {
+    return fetch(`${this._baseURL}/cards`, {
+      method: "POST",
+      headers: this._headers,
+
+      body: JSON.stringify({
+        name,
+        link,
+      }),
+    })
+    .then(res => {
+      if (res.ok) {
+        return res.json();
+      }
+
+      return Promise.reject(`Error: ${res.status}`);
+    });
   }
 
   getUserInfo() {
@@ -36,7 +55,6 @@ class API {
   }
 
 // other methods for working with the API
-
 editUserInfo({ name, about }) {
   return fetch(`${this._baseURL}/users/me`, {
     method: "PATCH",
@@ -54,6 +72,7 @@ editUserInfo({ name, about }) {
     return Promise.reject(`Error: ${res.status}`);
   });
 }
+
 }
 
 
