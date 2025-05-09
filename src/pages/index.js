@@ -38,6 +38,7 @@ import API from "../utils/Api.js";
 const profileEditButton = document.querySelector(".profile__edit-button");
 const profileNameElement = document.querySelector(".profile__name");
 const profileJobElement = document.querySelector(".profile__description");
+const profileImage = document.querySelector(".profile__image");
 
 //Form elements
 const editProfileModal = document.querySelector("#edit-modal");
@@ -83,10 +84,15 @@ const api = new API({
 
 // can add multiple variables, use a comma to separate.
   api.getAppInfo()
-  .then(([cards,]) =>  {
+  .then(([cards, user,]) =>  {
     cards.forEach((item) => {
     renderCard(item);
   });
+
+    profileNameElement.textContent = user.name;
+    profileJobElement.textContent = user.about;
+    profileImage.src = user.avatar;
+
 })
 .catch((err) => {
   console.error(err);
