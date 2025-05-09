@@ -8,7 +8,13 @@ class API {
     return fetch(`${this._baseURL}/cards`, {
   headers: this._headers,
 })
-.then((res) => res.json());
+.then(res => {
+  if (res.ok) {
+    return res.json();
+  }
+  // if the server returns an error, reject the promise
+  return Promise.reject(`Error: ${res.status}`);
+});
   }
 
   // other methods for working with the API
