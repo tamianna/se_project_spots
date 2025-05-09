@@ -34,7 +34,27 @@ class API {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
-  // other methods for working with the API
+
+// other methods for working with the API
+
+editUserInfo({ name, about }) {
+  return fetch(`${this._baseURL}/users/me`, {
+    method: "PATCH",
+    headers: this._headers,
+
+    body: JSON.stringify({
+      name,
+      about,
+    }),
+  }).then(res => {
+    if (res.ok) {
+      return res.json();
+    }
+
+    return Promise.reject(`Error: ${res.status}`);
+  });
 }
+}
+
 
 export default API;

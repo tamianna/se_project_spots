@@ -113,9 +113,15 @@ function openModal(modal) {
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
-  profileNameElement.textContent = nameInput.value;
-  profileJobElement.textContent = jobInput.value;
-  closeModal(editProfileModal);
+  api.editUserInfo({name: nameInput.value, about: jobInput.value })
+  .then((data) => {
+    profileNameElement.textContent = data.name;
+    profileJobElement.textContent = data.about;
+    closeModal(editProfileModal);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 }
 
 function handleAddFormSubmit(evt) {
