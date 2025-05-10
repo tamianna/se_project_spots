@@ -173,7 +173,7 @@ function handleAvatarSubmit(evt) {
   setButtonText(submitButton, true);
     api.editAvatarImage(avatarLink.value)
   .then((data) => {
-    avatarLink.src = data.avatar;
+    profileImage.src = data.avatar;
     evt.target.reset();
     closeModal(avatarModal);
   })
