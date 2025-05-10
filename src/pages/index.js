@@ -57,16 +57,12 @@ const captionInput = addImageModal.querySelector("#card-caption");
 const modalCloseAddButton = addImageModal.querySelector(
   "#modal__close-button-add"
 );
-const modalSaveAddButton = addImageModal.querySelector(
-  "#modal__save-button-add"
-);
 
 const deleteCardModal = document.querySelector("#delete-modal");
 const deleteForm = deleteCardModal.querySelector(".modal__delete-form");
 const closeDeleleModal = deleteCardModal.querySelector("#modal__close-button-delete");
 const cancelButton = deleteCardModal.querySelector(".modal__cancel-button");
 
-//modal
 const modals = document.querySelectorAll(".page .modal");
 const previewModal = document.querySelector("#preview-modal");
 const closePreviewModal = previewModal.querySelector(
@@ -74,6 +70,14 @@ const closePreviewModal = previewModal.querySelector(
 );
 const previewModalImage = previewModal.querySelector(".modal__image");
 const previewModalCaption = previewModal.querySelector(".modal__caption");
+
+const avatarEditButton = document.querySelector(".profile__avatar-button");
+const avatarModal = document.querySelector("#avatar-modal");
+const avatarFormElement = document.forms["add-avatar"];
+const avatarLink = avatarModal.querySelector("#image-link");
+const closeAvatarModal = avatarModal.querySelector("#modal__close-button-avatar");
+
+
 
 //Card elements
 const cardTemplate = document.querySelector("#card-template").content;
@@ -148,6 +152,20 @@ function handleAddFormSubmit(evt) {
   });
 }
 
+function handleAvatarSubmit(evt) {
+  evt.preventDefault();
+    api.editAvatarImage(avatarLink.value)
+  .then((data) => {
+    avatarLink.src = data.avatar;
+    evt.target.reset();
+    closeModal(avatarModal);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+}
+
+
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
   api.deleteCard(selectedCardId)
@@ -207,6 +225,13 @@ function renderCard(item, method = "append") {
 }
 
 //listeners
+avatarEditButton.addEventListener("click", () => {
+  openModal(avatarModal);
+});
+closeAvatarModal.addEventListener("click", () => {
+  closeModal(avatarModal);
+});
+
 closePreviewModal.addEventListener("click", () => {
   closeModal(previewModal);
 });
@@ -232,12 +257,12 @@ modalCloseEditButton.addEventListener("click", () => {
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 addFormElement.addEventListener("submit", handleAddFormSubmit);
+avatarFormElement.addEventListener("submit", handleAvatarSubmit);
 deleteForm.addEventListener("submit", handleDeleteSubmit);
 
 profileAddButton.addEventListener("click", () => {
   openModal(addImageModal);
 });
-
 modalCloseAddButton.addEventListener("click", () => {
   closeModal(addImageModal);
 });

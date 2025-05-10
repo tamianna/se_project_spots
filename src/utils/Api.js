@@ -69,7 +69,6 @@ class API {
     });
   }
 
-// other methods for working with the API
 editUserInfo({ name, about }) {
   return fetch(`${this._baseURL}/users/me`, {
     method: "PATCH",
@@ -78,6 +77,23 @@ editUserInfo({ name, about }) {
     body: JSON.stringify({
       name,
       about,
+    }),
+  }).then(res => {
+    if (res.ok) {
+      return res.json();
+    }
+
+    return Promise.reject(`Error: ${res.status}`);
+  });
+}
+
+editAvatarImage(avatar) {
+  return fetch(`${this._baseURL}/users/me/avatar`, {
+    method: "PATCH",
+    headers: this._headers,
+
+    body: JSON.stringify({
+      avatar
     }),
   }).then(res => {
     if (res.ok) {
