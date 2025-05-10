@@ -271,6 +271,12 @@
     width: 100%;
   }
 
+  .modal__delete-form {
+    flex-direction: column;
+    margin: 0;
+    align-items: center;
+  }
+
 }
 
 @media screen and (max-width: 375px) {
@@ -319,6 +325,16 @@
 
   .modal__save-button {
     width: 100%;
+  }
+
+  .modal__delete-form {
+    flex-direction: column;
+    margin: 0;
+    align-items: center;
+  }
+
+  .modal__close-button-delete {
+    top: -46px;
   }
 }
 
