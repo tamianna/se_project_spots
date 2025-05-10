@@ -259,7 +259,18 @@
 @media screen and (min-width: 425px) and (max-width: 425px) {
   .modal__container {
     max-width: 390px;
+    padding: 12px;
   }
+
+  .modal__close-button {
+    right: 12px;
+    top: 12px;
+  }
+
+  .modal__save-button {
+    width: 100%;
+  }
+
 }
 
 @media screen and (max-width: 375px) {
