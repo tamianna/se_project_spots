@@ -6,6 +6,7 @@ import {
 } from "../scripts/validation.js";
 import autoprefixer from "autoprefixer";
 import API from "../utils/Api.js";
+import {setButtonText} from "../utils/helpers.js";
 
 /*const initialCards = [
   {
@@ -127,6 +128,10 @@ function openModal(modal) {
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
+
+  const submitButton = evt.submitter;
+  setButtonText(submitButton, true);
+
   api.editUserInfo({ name: nameInput.value, about: jobInput.value })
   .then((data) => {
     profileNameElement.textContent = data.name;
@@ -135,11 +140,17 @@ function handleEditFormSubmit(evt) {
   })
   .catch((err) => {
     console.error(err);
+  })
+  .finally(() => {
+    setButtonText(submitButton, false);
   });
 }
 
 function handleAddFormSubmit(evt) {
   evt.preventDefault();
+
+ const submitButton = evt.submitter;
+  setButtonText(submitButton, true);
   api.addNewCard({ name: captionInput.value, link: linkInput.value })
   .then((data) => {
     const cardElement = getCardElement(data);
@@ -149,11 +160,17 @@ function handleAddFormSubmit(evt) {
   })
   .catch((err) => {
     console.error(err);
+  })
+  .finally(() => {
+    setButtonText(submitButton, false);
   });
 }
 
 function handleAvatarSubmit(evt) {
   evt.preventDefault();
+
+ const submitButton = evt.submitter;
+  setButtonText(submitButton, true);
     api.editAvatarImage(avatarLink.value)
   .then((data) => {
     avatarLink.src = data.avatar;
@@ -162,12 +179,17 @@ function handleAvatarSubmit(evt) {
   })
   .catch((err) => {
     console.error(err);
+  }).finally(() => {
+    setButtonText(submitButton, false);
   });
 }
 
 
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
+
+  const submitButton = evt.submitter;
+  setButtonText(submitButton, true, "Delete", "Deleting...");
   api.deleteCard(selectedCardId)
   .then(() => {
     selectedCard.remove();
@@ -175,8 +197,11 @@ function handleDeleteSubmit(evt) {
   })
   .catch((err) => {
     console.error(err);
+  }).finally(() => {
+    setButtonText(submitButton, true, "Delete", "Deleting...");
   });
 }
+
 
 function handleLikeButton(evt, id) {
   const isLiked = evt.target.classList.contains("card__like-button_liked");
