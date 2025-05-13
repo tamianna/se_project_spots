@@ -6,7 +6,7 @@ import {
 } from "../scripts/validation.js";
 import autoprefixer from "autoprefixer";
 import API from "../utils/Api.js";
-import { setButtonText } from "../utils/helpers.js";
+import { setButtonText, handleSubmitButton } from "../utils/helpers.js";
 
 /*const initialCards = [
   {
@@ -129,84 +129,51 @@ function openModal(modal) {
 }
 
 function handleEditFormSubmit(evt) {
-  evt.preventDefault();
-
-  const submitButton = evt.submitter;
-  setButtonText(submitButton, true);
-
-  api
-    .editUserInfo({ name: nameInput.value, about: jobInput.value })
-    .then((data) => {
+  handleSubmitButton(() => {
+    return api.editUserInfo({
+      name: nameInput.value,
+      about: jobInput.value,
+    }).then((data) => {
       profileNameElement.textContent = data.name;
       profileJobElement.textContent = data.about;
       closeModal(editProfileModal);
-    })
-    .catch((err) => {
-      console.error(err);
-    })
-    .finally(() => {
-      setButtonText(submitButton, false);
     });
+  }, evt, "Saving...");
 }
 
 function handleAddFormSubmit(evt) {
-  evt.preventDefault();
-
-  const submitButton = evt.submitter;
-  setButtonText(submitButton, true);
-  api
-    .addNewCard({ name: captionInput.value, link: linkInput.value })
-    .then((data) => {
+  handleSubmitButton(() => {
+    return api.addNewCard({
+      name: captionInput.value,
+      link: linkInput.value
+    }).then((data) => {
       const cardElement = getCardElement(data);
       cardsList.prepend(cardElement);
       evt.target.reset();
       closeModal(addImageModal);
-    })
-    .catch((err) => {
-      console.error(err);
-    })
-    .finally(() => {
-      setButtonText(submitButton, false);
     });
+  }, evt, "Saving...");
 }
 
 function handleAvatarSubmit(evt) {
-  evt.preventDefault();
-
-  const submitButton = evt.submitter;
-  setButtonText(submitButton, true);
-  api
-    .editAvatarImage(avatarLink.value)
+handleSubmitButton(() => {
+  return api.editAvatarImage(avatarLink.value)
     .then((data) => {
       profileImage.src = data.avatar;
       evt.target.reset();
       closeModal(avatarModal);
-    })
-    .catch((err) => {
-      console.error(err);
-    })
-    .finally(() => {
-      setButtonText(submitButton, false);
     });
+  }, evt, "Saving...");
 }
 
 function handleDeleteSubmit(evt) {
-  evt.preventDefault();
-
-  const submitButton = evt.submitter;
-  setButtonText(submitButton, true, "Delete", "Deleting...");
-  api
-    .deleteCard(selectedCardId)
+  handleSubmitButton(() => {
+    return api.deleteCard(selectedCardId)
     .then(() => {
       selectedCard.remove();
       closeModal(deleteCardModal);
-    })
-    .catch((err) => {
-      console.error(err);
-    })
-    .finally(() => {
-      setButtonText(submitButton, false, "Delete", "Deleting...");
     });
+  }, evt, "Deleting...");
 }
 
 function handleLikeButton(evt, id) {

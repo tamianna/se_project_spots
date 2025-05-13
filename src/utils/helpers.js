@@ -13,7 +13,7 @@ export function handleSubmitButton(request, evt, loadingText = "Saving...") {
   const sumbitButton = evt.submitter;
   const initialText = sumbitButton.textContent;
 
-  setButtonText(true, sumbitButton, initialText, loadingText);
+  setButtonText(sumbitButton, true, initialText, loadingText);
 
   request()
   .then(() => {
@@ -21,6 +21,6 @@ export function handleSubmitButton(request, evt, loadingText = "Saving...") {
   })
   .catch(console.error)
   .finally(() => {
-    setButtonText(false, sumbitButton, initialText);
+    setButtonText(sumbitButton, false, initialText);
   });
 }
