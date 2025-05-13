@@ -17,6 +17,12 @@ class API {
     return Promise.reject(`Error: ${res.status}`);
   }
 
+  _request(endpoint, options) {
+    return fetch(`${this._baseURL}${endpoint}`, options).then(
+      this._checkResponse
+    )
+  }
+
   getInitialCards() {
     return fetch(`${this._baseURL}/cards`, {
       headers: this._headers,
@@ -24,7 +30,7 @@ class API {
   }
 
   addNewCard({ name, link }) {
-    return fetch(`${this._baseURL}/cards`, {
+    return this._request(`/cards`, {
       method: "POST",
       headers: this._headers,
 
@@ -32,31 +38,31 @@ class API {
         name,
         link,
       }),
-    }).then(this._checkResponse);
+    });
   }
 
   deleteCard(id) {
-    return fetch(`${this._baseURL}/cards/${id}`, {
+    return this._request(`/cards/${id}`, {
       method: "DELETE",
       headers: this._headers,
-    }).then(this._checkResponse);
+    });
   }
 
   handleCardLike(id, isLiked) {
-    return fetch(`${this._baseURL}/cards/${id}/likes`, {
+    return this._request(`/cards/${id}/likes`, {
       method: isLiked ? "DELETE" : "PUT",
       headers: this._headers,
-    }).then(this._checkResponse);
+    });
   }
 
   getUserInfo() {
-    return fetch(`${this._baseURL}/users/me`, {
+    return this._request(`/users/me`, {
       headers: this._headers,
-    }).then(this._checkResponse);
+    });
   }
 
   editUserInfo({ name, about }) {
-    return fetch(`${this._baseURL}/users/me`, {
+    return this._request(`/users/me`, {
       method: "PATCH",
       headers: this._headers,
 
@@ -64,18 +70,18 @@ class API {
         name,
         about,
       }),
-    }).then(this._checkResponse);
+    });
   }
 
   editAvatarImage(avatar) {
-    return fetch(`${this._baseURL}/users/me/avatar`, {
+    return this._request(`/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
 
       body: JSON.stringify({
         avatar,
       }),
-    }).then(this._checkResponse);
+    });
   }
 }
 
