@@ -77,7 +77,7 @@ const previewModalCaption = previewModal.querySelector(".modal__caption");
 const avatarEditButton = document.querySelector(".profile__avatar-button");
 const avatarModal = document.querySelector("#avatar-modal");
 const avatarFormElement = document.forms["add-avatar"];
-const avatarLink = avatarModal.querySelector("#image-link");
+const avatarLink = avatarModal.querySelector("#avatar-link");
 const closeAvatarModal = avatarModal.querySelector(
   "#modal__close-button-avatar"
 );
