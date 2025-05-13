@@ -205,7 +205,7 @@ function handleDeleteSubmit(evt) {
       console.error(err);
     })
     .finally(() => {
-      setButtonText(submitButton, true, "Delete", "Deleting...");
+      setButtonText(submitButton, false, "Delete", "Deleting...");
     });
 }
 
