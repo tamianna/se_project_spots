@@ -25,11 +25,18 @@
 
       <main class="content">
         <section class="profile page__section">
+          <div class="profile__avatar-container">
+          <button class="profile__avatar-button"> <img
+            src="<%=require('./images/avatar-edit-pencil.svg')%>"
+            alt="Edit image for avatar button, light pencil."
+            class="profile__avatar-icon"
+          /></button>
           <img
             src="<%=require('./images/avatar.jpg')%>"
             alt="Phote of BEssie Coleman"
             class="profile__image"
           />
+        </div>
           <div class="profile__content">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
@@ -160,6 +167,37 @@
         </div>
       </div>
 
+      <div id="avatar-modal" class="modal">
+        <div class="modal__container">
+          <h2 class="modal__title">Edit profile avatar</h2>
+          <button
+            type="button"
+            id="modal__close-button-avatar"
+            class="modal__close-button"
+          ></button>
+          <form name="add-avatar" id="add-avatar" class="modal__form">
+            <label for="avatar-link" class="modal__label">
+              Profile Picture
+              <input
+                id="avatar-link"
+                type="url"
+                class="modal__input"
+                placeholder="Paste a link to an image"
+                required
+              />
+              <span id="avatar-link-error" class="modal__error"></span>
+            </label>
+            <button
+              type="submit"
+              id="modal__save-button-avatar"
+              class="modal__save-button"
+            >
+              Save
+            </button>
+          </form>
+        </div>
+      </div>
+
       <div class="modal" id="preview-modal">
         <div class="modal__container modal__container_type_preview">
           <img class="modal__image" src="#" alt="" />
@@ -171,6 +209,34 @@
           ></button>
         </div>
       </div>
+
+      <div id="delete-modal" class="modal">
+        <div class="modal__container">
+          <h2 class="modal__delete-title">Are you sure you want to delete this image?</h2>
+          <button
+            type="button"
+            id="modal__close-button-delete"
+            class="modal__close-button-preview modal__close-button-delete"
+          ></button>
+          <form id="delete-form" class="modal__delete-form">
+            <button
+              type="submit"
+              id="modal__delete-button"
+              class="modal__delete-button"
+            >
+              Delete
+            </button>
+            <button
+              type="button"
+              id="modal__delete-button-cancel"
+              class="modal__cancel-button"
+            >
+              Cancel
+            </button>
+          </form>
+        </div>
+      </div>
+
     </div>
   </body>
 </html>
